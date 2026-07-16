@@ -3,11 +3,10 @@
   Small CLI tool jo koi bhi message encrypt kr k " self destructing code " bana deta hai.
  Matlab message ek baar read hone ke baad ya time limit khatam hote hi khud delete ho jata hai.
  
-mai ne ye bnaya kyu k normal messaging apps mein "disappearing messages" hoti hain lekin unka backend hum dekh nahi sakte. 
+Mai ne ye bnaya kyu k normal messaging apps mein "disappearing messages" hoti hain lekin unka backend hum dekh nahi sakte. 
 
-Logic and how it works describe below :
 
-Ye Karta Kya Hai
+ ## Ye Karta Kya Hai
 
 
 Tum ek message likhte ho
@@ -18,3 +17,43 @@ Ya to read hone ke baad, ya expire time (default 24 hours) ke baad, message hame
 
 
 Dobara koi try kare us code se to error milega — "
+
+ ## Install
+
+bashpip install cryptography
+
+Kaise Chalayen
+
+  ## Message banane ke liye:
+
+bashpython self_destruct.py --create
+
+Ye tumse message maangega aur ek code de dega, jese: SD-7f3ka9
+
+
+ ## Message read karne ke liye:
+
+bashpython self_destruct.py --read SD-7f3ka9
+
+Message ek dafa dikhega, uske baad wo automatically system se delete ho jayega.
+
+Expiry time change karna ho:
+
+bashpython self_destruct.py --create --expires 1
+
+# (1 ghante mein expire ho jayega)
+
+
+ ## Kaise Kaam Karta Hai (Technical)
+
+
+Fernet symmetric encryption (cryptography library) use hoti hai
+Har message ka apna encryption key hota hai, jo message ke sath hi generate hota hai
+Messages ek local SQLite database mein store hote hain (messages.db)
+Jese hi message read ho ya time khatam ho, us row ko database se permanently delete kar diya jata hai — recovery possible nahi
+
+
+## For learning purpose only 
+
+
+
