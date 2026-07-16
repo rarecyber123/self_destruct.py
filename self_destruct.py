@@ -97,7 +97,7 @@ def read_message(conn, code):
         print("Message decrypt nahi ho saka — data corrupt ho sakta hai.")
         return
 
-    # Read hone ke baad turant delete
+    # Read hone ke baad foraan bad delete
     conn.execute("DELETE FROM messages WHERE code=?", (code,))
     conn.commit()
 
