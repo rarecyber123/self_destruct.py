@@ -12,7 +12,6 @@ Usage:
     python self_destruct.py --read SD-xxxxxx
 """
 
-
 import argparse
 import random
 import sqlite3
@@ -97,7 +96,7 @@ def read_message(conn, code):
         print("Message decrypt nahi ho saka — data corrupt ho sakta hai.")
         return
 
-    # Read hone ke baad foraan bad delete
+    # Read hone ke baad turant delete
     conn.execute("DELETE FROM messages WHERE code=?", (code,))
     conn.commit()
 
@@ -129,4 +128,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
