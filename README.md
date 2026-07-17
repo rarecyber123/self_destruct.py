@@ -41,7 +41,7 @@ Expiry time change karna ho:
 
 bashpython self_destruct.py --create --expires 1
 
-(1 ghante mein expire ho jayega)
+ ## (1 ghante mein expire ho jayega)
 
 
  ## Kaise Kaam Karta Hai (Technical)
